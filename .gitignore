@@ -1,0 +1,35 @@
+# Notas de desenvolvimento - não sobem pro repo
+docs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Empacotamento
+build/
+dist/
+
+# Artefatos de gettext soltos na raiz/po (msgfmt sem -o cai aqui por engano;
+# os .mo de verdade usados em runtime ficam em razer_gtk/locale/**/*.mo)
+/messages.mo
+/po/messages.mo
+
+# Editores/IDE
+.vscode/
+.idea/
+*.swp
+
+# SO
+.DS_Store
+
+# Config/estado local do app (roda de dentro do checkout via `python -m
+# razer_gtk`, mas por segurança - presets, tema, etc. normalmente vivem em
+# ~/.config/razer-gtk/, fora do repo, isso é só um cinto de segurança)
+*.local.json

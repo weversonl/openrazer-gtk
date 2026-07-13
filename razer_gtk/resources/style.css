@@ -1,0 +1,61 @@
+.chip-pill {
+  padding: 8px 16px;
+  min-height: 20px;
+  min-width: 0;
+  border-radius: 9999px;
+}
+
+.swatch-add {
+  border: 2px dashed alpha(currentColor, 0.3);
+  background: none;
+}
+
+.round-swatch {
+  padding: 0;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 9999px;
+}
+
+.selected-swatch {
+  outline: 2px solid @accent_color;
+  outline-offset: 2px;
+}
+
+.dpi-image-placeholder {
+  border: 2px dashed alpha(currentColor, 0.15);
+  border-radius: 12px;
+}
+
+.device-image-filled {
+  border: 1px solid alpha(currentColor, 0.15);
+  border-radius: 12px;
+}
+
+.device-image-edit-button {
+  padding: 0;
+  min-width: 26px;
+  min-height: 26px;
+  border-radius: 9999px;
+}
+
+.status-dot {
+  border-radius: 9999px;
+}
+
+.status-connected {
+  background-color: #3a944a;
+}
+
+.status-disconnected {
+  background-color: alpha(currentColor, 0.3);
+}
+
+.preset-active-badge {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}

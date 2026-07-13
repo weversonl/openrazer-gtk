@@ -1,0 +1,18 @@
+[project]
+name = "razer-gtk"
+version = "0.1.0"
+description = "GTK4/Libadwaita native control panel for Razer peripherals via OpenRazer"
+requires-python = ">=3.10"
+dependencies = [
+    "PyGObject>=3.50",
+]
+
+[project.scripts]
+razer-gtk = "razer_gtk.main:run"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["razer_gtk*"]
