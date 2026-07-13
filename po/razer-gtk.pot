@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenRazerGTK 0.1.0\n"
-"Report-Msgid-Bugs-To: weversonlemos10@gmail.com\n"
-"POT-Creation-Date: 2026-07-13 02:12-0300\n"
+"Project-Id-Version: OpenRazerGTK\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-13 18:36-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,41 +17,407 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: razer_gtk/backend/device_adapter.py:68
-msgid "Logo"
+#: razer_gtk/window.py:83
+msgid "Selecione um dispositivo"
 msgstr ""
 
-#: razer_gtk/backend/device_adapter.py:69
-msgid "Roda de rolagem"
+#: razer_gtk/window.py:89 razer_gtk/window.py:136
+msgid "Procurando dispositivos..."
 msgstr ""
 
-#: razer_gtk/backend/device_adapter.py:70
-msgid "Lado esquerdo"
+#: razer_gtk/window.py:169
+#, python-brace-format
+msgid "Carregando {device}..."
 msgstr ""
 
-#: razer_gtk/backend/device_adapter.py:71
-msgid "Lado direito"
+#: razer_gtk/window.py:227
+msgid "Estágios de DPI salvos"
 msgstr ""
 
-#: razer_gtk/backend/device_adapter.py:72
+#: razer_gtk/window.py:252
+#, python-brace-format
+msgid "As configurações não batem mais com o preset \"{name}\""
+msgstr ""
+
+#: razer_gtk/window.py:253 razer_gtk/dialogs/dpi_stage_editor.py:36
+#: razer_gtk/widgets/cards/presets_card.py:174
+#: razer_gtk/widgets/device_overview.py:233
+msgid "Salvar"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:26
+msgid "Sistema"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:26
+msgid "Claro"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:26
+msgid "Escuro"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:40
+msgid "Geral"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:52
+msgid "Tema"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:63
+msgid "Idioma"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:63
+msgid "Aplicado ao reiniciar o app"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:67
+msgid "Iniciar automaticamente"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:68
+msgid "Abre minimizado na bandeja ao ligar o sistema"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:78
+msgid "Tamanho da janela"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:79
+msgid "Redefinir"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:85
+msgid "Backend"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:88
+msgid "Status do OpenRazer"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:94
+msgid "Versão do daemon"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:99 razer_gtk/widgets/device_overview.py:204
+#: razer_gtk/widgets/device_sidebar.py:118
+msgid "Conectado"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:104
+msgid "Indisponível"
+msgstr ""
+
+#: razer_gtk/dialogs/color_picker.py:28 razer_gtk/dialogs/color_picker.py:116
+msgid "Escolher cor"
+msgstr ""
+
+#: razer_gtk/dialogs/color_picker.py:32
+#: razer_gtk/dialogs/dpi_stage_editor.py:33
+#: razer_gtk/widgets/cards/presets_card.py:173
+#: razer_gtk/widgets/device_overview.py:230
+msgid "Cancelar"
+msgstr ""
+
+#: razer_gtk/dialogs/color_picker.py:35
+msgid "Selecionar"
+msgstr ""
+
+#: razer_gtk/dialogs/color_picker.py:88
+msgid "Personalizada"
+msgstr ""
+
+#: razer_gtk/dialogs/color_picker.py:97
+msgid "Mais cores…"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:29
+msgid "Estágios de DPI"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:52
+#, python-brace-format
+msgid "Até {max_dpi} DPI"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:64
+msgid "+ Adicionar estágio"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:69
+msgid "Sincronizar"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:70
+msgid "Também aplica o estágio ativo ao DPI atual do dispositivo ao salvar"
+msgstr ""
+
+#: razer_gtk/dialogs/dpi_stage_editor.py:87
+#, python-brace-format
+msgid "Estágio {n}"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:18
+msgid "Estática"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:19
+msgid "Espectro"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:20
+msgid "Onda"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:21
+msgid "Roda"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:22
+msgid "Respiração"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:23
+msgid "Respiração dupla"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:24
+msgid "Respiração tripla"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:25
+msgid "Respiração aleatória"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:26
+msgid "Respiração mono"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:27
+msgid "Reativo"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:28
+msgid "Ondulação"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:29
+msgid "Ondulação aleatória"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:30
+msgid "Starlight"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:31
+msgid "Starlight duplo"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:32
+msgid "Starlight aleatório"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:33
+msgid "Desligado"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:34
+msgid "Ligado"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:35
+msgid "Piscando"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:36
+msgid "Pulsante"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:93
+msgid "Efeito"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:97
+msgid "Cor"
+msgstr ""
+
+#: razer_gtk/widgets/effect_controls.py:206
+msgid "Brilho"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:32
+msgid "Presets"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:33
+msgid "Combinações salvas localmente neste app - não são perfis de hardware"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:129
+msgid "Salvar alterações no preset"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:136
+msgid "Desfazer alterações"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:140
+msgid "Ativo"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:148
+msgid "Aplicar"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:155
+msgid "Excluir"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:161
+#: razer_gtk/widgets/cards/presets_card.py:168
+msgid "Novo preset"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:169
+msgid "Salva DPI, taxa de sondagem e iluminação atuais deste dispositivo."
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:171
+msgid "Nome do preset"
+msgstr ""
+
+#: razer_gtk/widgets/cards/presets_card.py:181
+msgid "Preset sem nome"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:31
+msgid "Sensibilidade e taxa de sondagem do sensor"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:73
+msgid "Editar"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:81
+msgid "Estágio"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:103
+msgid "DPI"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:115
+msgid "Eixos independentes (X/Y)"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:161
+#, python-brace-format
+msgid "DPI (até {max_dpi})"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:193
+msgid "Taxa de sondagem"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:28
+msgid "Bateria e Energia"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:28
+msgid "Nível de carga e economia de energia"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:39
+msgid "Bateria"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:61
+msgid "Modo de dormir depois"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:63
+msgid "Minutos de inatividade"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:70
+msgid "Entrar em baixa energia em"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:72
+msgid "Percentual de bateria"
+msgstr ""
+
+#: razer_gtk/widgets/cards/battery_card.py:90
+#: razer_gtk/backend/device_adapter.py:104
 msgid "Carregando"
 msgstr ""
 
-#: razer_gtk/backend/device_adapter.py:73
-msgid "Carregamento rápido"
-msgstr ""
-
-#: razer_gtk/backend/device_adapter.py:74
-msgid "Totalmente carregada"
-msgstr ""
-
-#: razer_gtk/backend/device_adapter.py:75
-msgid "Luz de fundo"
-msgstr ""
-
-#: razer_gtk/backend/device_adapter.py:146
-#: razer_gtk/widgets/cards/lighting_card.py:33
+#: razer_gtk/widgets/cards/lighting_card.py:32
+#: razer_gtk/backend/device_adapter.py:168
 msgid "Iluminação"
+msgstr ""
+
+#: razer_gtk/widgets/cards/lighting_card.py:32
+msgid "Efeito, cor e brilho da luz principal do dispositivo"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:180
+msgid "Alterar imagem"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:196
+#: razer_gtk/widgets/device_overview.py:225
+msgid "Renomear dispositivo"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:226
+msgid "Só muda o nome mostrado no app - o dispositivo em si não é alterado."
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:232
+msgid "Restaurar nome original"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:264
+msgid "Escolher imagem…"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:272
+msgid "Remover imagem"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:288
+msgid "Escolher imagem"
+msgstr ""
+
+#: razer_gtk/widgets/device_overview.py:291
+msgid "Imagens"
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:22
+msgid "Dispositivos"
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:30
+msgid "Procurar dispositivos novamente"
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:42
+msgid "DISPOSITIVOS"
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:57
+msgid "Nenhum dispositivo Razer encontrado"
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:58
+msgid "Conecte um mouse compatível com o OpenRazer para começar."
+msgstr ""
+
+#: razer_gtk/widgets/device_sidebar.py:70
+msgid "Preferências"
 msgstr ""
 
 #: razer_gtk/backend/errors.py:12
@@ -70,319 +436,77 @@ msgstr ""
 msgid "Erro inesperado"
 msgstr ""
 
-#: razer_gtk/dialogs/color_picker.py:36
-msgid "Escolher cor"
+#: razer_gtk/backend/device_adapter.py:21
+#: razer_gtk/backend/device_adapter.py:32
+msgid "Velocidade"
 msgstr ""
 
-#: razer_gtk/dialogs/color_picker.py:40
-#: razer_gtk/dialogs/dpi_stage_editor.py:31
-#: razer_gtk/widgets/cards/presets_card.py:81
-msgid "Cancelar"
+#: razer_gtk/backend/device_adapter.py:23
+#: razer_gtk/backend/device_adapter.py:34
+msgid "Rápida"
 msgstr ""
 
-#: razer_gtk/dialogs/color_picker.py:43
-msgid "Selecionar"
+#: razer_gtk/backend/device_adapter.py:24
+#: razer_gtk/backend/device_adapter.py:35
+msgid "Normal"
 msgstr ""
 
-#: razer_gtk/dialogs/color_picker.py:92
-msgid "Personalizada"
+#: razer_gtk/backend/device_adapter.py:25
+#: razer_gtk/backend/device_adapter.py:36
+msgid "Lenta"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:27
-#: razer_gtk/widgets/cards/dpi_card.py:62
-msgid "Estágios de DPI"
+#: razer_gtk/backend/device_adapter.py:26
+msgid "Muito lenta"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:34
-#: razer_gtk/widgets/cards/presets_card.py:82
-msgid "Salvar"
+#: razer_gtk/backend/device_adapter.py:42
+#: razer_gtk/backend/device_adapter.py:51
+msgid "Direção"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:50
-#, python-brace-format
-msgid "Até {max_dpi} DPI"
+#: razer_gtk/backend/device_adapter.py:44
+#: razer_gtk/backend/device_adapter.py:53
+msgid "Esquerda"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:62
-msgid "+ Adicionar estágio"
+#: razer_gtk/backend/device_adapter.py:45
+#: razer_gtk/backend/device_adapter.py:54
+msgid "Direita"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:67
-msgid "Sincronizar"
+#: razer_gtk/backend/device_adapter.py:100
+msgid "Logo"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:68
-msgid "Também aplica o estágio ativo ao DPI atual do dispositivo ao salvar"
+#: razer_gtk/backend/device_adapter.py:101
+msgid "Roda de rolagem"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:85
-#, python-brace-format
-msgid "Estágio {n}"
+#: razer_gtk/backend/device_adapter.py:102
+msgid "Lado esquerdo"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:22
-msgid "Sistema"
+#: razer_gtk/backend/device_adapter.py:103
+msgid "Lado direito"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:22
-msgid "Claro"
+#: razer_gtk/backend/device_adapter.py:105
+msgid "Carregamento rápido"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:22
-msgid "Escuro"
+#: razer_gtk/backend/device_adapter.py:106
+msgid "Totalmente carregada"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:36
-msgid "Geral"
+#: razer_gtk/backend/device_adapter.py:107
+msgid "Luz de fundo"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:39
-msgid "Tema"
+#: razer_gtk/tray_helper.py:50
+msgid "Abrir"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:51
-msgid "Idioma"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:51
-msgid "Aplicado ao reiniciar o app"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:62
-msgid "Backend"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:65
-msgid "Status do OpenRazer"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:71
-msgid "Versão do daemon"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:76 razer_gtk/widgets/device_overview.py:77
-#: razer_gtk/widgets/device_sidebar.py:117
-msgid "Conectado"
-msgstr ""
-
-#: razer_gtk/dialogs/preferences.py:81
-msgid "Indisponível"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:23
-msgid "Bateria e Energia"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:23
-msgid "Nível de carga e economia de energia"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:34
-msgid "Bateria"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:52
-msgid "Modo de dormir depois"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:53
-msgid "Minutos de inatividade"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:60
-msgid "Entrar em baixa energia em"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:61
-msgid "Percentual de bateria"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:73
-msgid "(carregando)"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:25
-msgid "Sensibilidade e taxa de sondagem do sensor"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:58
-msgid "Editar"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:73
-msgid "Eixos independentes (X/Y)"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:113
-#, python-brace-format
-msgid "DPI (até {max_dpi})"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:142
-msgid "Taxa de sondagem"
-msgstr ""
-
-#: razer_gtk/widgets/cards/lighting_card.py:33
-msgid "Efeito, cor e brilho da luz principal do dispositivo"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:23
-msgid "Presets"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:24
-msgid "Combinações salvas localmente neste app - não são perfis de hardware"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:39
-#: razer_gtk/widgets/cards/presets_card.py:76
-msgid "Novo preset"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:62
-msgid "Aplicar"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:67
-msgid "Excluir"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:77
-msgid "Salva DPI, taxa de sondagem e iluminação atuais deste dispositivo."
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:79
-msgid "Nome do preset"
-msgstr ""
-
-#: razer_gtk/widgets/cards/presets_card.py:89
-msgid "Preset sem nome"
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:20
-msgid "Dispositivos"
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:36
-msgid "DISPOSITIVOS"
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:51
-msgid "Nenhum dispositivo Razer encontrado"
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:52
-msgid "Conecte um mouse compatível com o OpenRazer para começar."
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:64
-msgid "Preferências"
-msgstr ""
-
-#: razer_gtk/widgets/device_sidebar.py:117
-msgid "Desconectado"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:27
-msgid "Estática"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:28
-msgid "Espectro"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:29
-msgid "Onda"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:30
-msgid "Roda"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:31
-msgid "Respiração"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:32
-msgid "Respiração dupla"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:33
-msgid "Respiração tripla"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:34
-msgid "Respiração aleatória"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:35
-msgid "Respiração mono"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:36
-msgid "Reativo"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:37
-msgid "Ondulação"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:38
-msgid "Ondulação aleatória"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:39
-msgid "Starlight"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:40
-msgid "Starlight duplo"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:41
-msgid "Starlight aleatório"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:42
-msgid "Desligado"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:43
-msgid "Ligado"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:44
-msgid "Piscando"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:45
-msgid "Pulsante"
-msgstr ""
-
-#: razer_gtk/widgets/effect_controls.py:165
-msgid "Brilho"
-msgstr ""
-
-#: razer_gtk/widgets/effects_editor.py:91
-msgid "Salvar no dispositivo"
-msgstr ""
-
-#: razer_gtk/window.py:46
-msgid "Selecione um dispositivo"
-msgstr ""
-
-#: razer_gtk/window.py:104
-msgid "Visão geral"
-msgstr ""
-
-#: razer_gtk/window.py:108
-msgid "Salvo no dispositivo"
-msgstr ""
-
-#: razer_gtk/window.py:110
-msgid "Editor de efeitos"
-msgstr ""
-
-#: razer_gtk/window.py:117
-msgid "Estágios de DPI salvos"
+#: razer_gtk/tray_helper.py:56
+msgid "Sair"
 msgstr ""

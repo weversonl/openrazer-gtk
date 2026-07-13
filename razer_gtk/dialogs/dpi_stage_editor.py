@@ -8,6 +8,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Gtk
 
+from razer_gtk.backend import device_names
 from razer_gtk.backend.device_adapter import DeviceCapabilities
 from razer_gtk.i18n import _
 
@@ -46,7 +47,7 @@ def open_dpi_stage_editor(
     device_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     device_row.append(Gtk.Image.new_from_icon_name("input-mouse-symbolic"))
     label_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-    name_label = Gtk.Label(label=device.name, xalign=0.0)
+    name_label = Gtk.Label(label=device_names.display_name(device), xalign=0.0)
     name_label.add_css_class("heading")
     subtitle_label = Gtk.Label(label=_("Até {max_dpi} DPI").format(max_dpi=max_dpi), xalign=0.0)
     subtitle_label.add_css_class("dim-label")

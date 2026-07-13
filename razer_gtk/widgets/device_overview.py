@@ -10,6 +10,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, Gio, GLib, GObject, Gtk
 
 from razer_gtk.backend import device_images
+from razer_gtk.backend import device_names
 from razer_gtk.backend.device_adapter import DeviceCapabilities
 from razer_gtk.i18n import _
 from razer_gtk.widgets.cards.battery_card import BatteryCard
@@ -47,6 +48,7 @@ class DeviceOverview(Gtk.Box):
         "reload-requested": (GObject.SignalFlags.RUN_FIRST, None, ()),
         "baseline-changed": (GObject.SignalFlags.RUN_FIRST, None, (str,)),
         "dirty-detected": (GObject.SignalFlags.RUN_FIRST, None, (str,)),
+        "name-changed": (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
     def __init__(
@@ -185,8 +187,19 @@ class DeviceOverview(Gtk.Box):
         image_overlay.add_overlay(edit_button)
         image_overlay.set_halign(Gtk.Align.CENTER)
 
-        name_label = Gtk.Label(label=device.name)
-        name_label.add_css_class("title-2")
+        self._name_label = Gtk.Label(label=device_names.display_name(device))
+        self._name_label.add_css_class("title-2")
+
+        rename_button = Gtk.Button(icon_name="document-edit-symbolic")
+        rename_button.add_css_class("flat")
+        rename_button.set_valign(Gtk.Align.CENTER)
+        rename_button.set_tooltip_text(_("Renomear dispositivo"))
+        rename_button.connect("clicked", lambda *_a: self._open_rename_dialog(serial, device.name))
+
+        name_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
+        name_row.set_halign(Gtk.Align.CENTER)
+        name_row.append(self._name_label)
+        name_row.append(rename_button)
 
         status_label = Gtk.Label(label=_("Conectado"))
         status_label.add_css_class("dim-label")
@@ -199,13 +212,44 @@ class DeviceOverview(Gtk.Box):
         header_box.set_margin_start(12)
         header_box.set_margin_end(12)
         header_box.append(image_overlay)
-        header_box.append(name_label)
+        header_box.append(name_row)
         header_box.append(status_label)
 
         row = Adw.PreferencesRow(activatable=False)
         row.set_child(header_box)
         group.add(row)
         return group
+
+    def _open_rename_dialog(self, serial: str, original_name: str) -> None:
+        dialog = Adw.AlertDialog(
+            heading=_("Renomear dispositivo"),
+            body=_("Só muda o nome mostrado no app - o dispositivo em si não é alterado."),
+        )
+        entry = Gtk.Entry(text=device_names.display_name(self._caps.device))
+        dialog.set_extra_child(entry)
+        dialog.add_response("cancel", _("Cancelar"))
+        if device_names.get_custom_name(serial) is not None:
+            dialog.add_response("reset", _("Restaurar nome original"))
+        dialog.add_response("save", _("Salvar"))
+        dialog.set_response_appearance("save", Adw.ResponseAppearance.SUGGESTED)
+        dialog.set_default_response("save")
+
+        def on_response(_dialog, response: str) -> None:
+            if response == "save":
+                name = entry.get_text().strip()
+                if name and name != original_name:
+                    device_names.set_custom_name(serial, name)
+                else:
+                    device_names.remove_custom_name(serial)
+                self._name_label.set_label(device_names.display_name(self._caps.device))
+                self.emit("name-changed")
+            elif response == "reset":
+                device_names.remove_custom_name(serial)
+                self._name_label.set_label(original_name)
+                self.emit("name-changed")
+
+        dialog.connect("response", on_response)
+        dialog.present(self.get_root())
 
     def _open_image_menu(self, button: Gtk.Button, serial: str, refresh_image: Callable[[], None]) -> None:
         popover = Gtk.Popover()

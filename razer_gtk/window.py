@@ -6,6 +6,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Gdk, Gtk
 
+from razer_gtk.backend import device_names
 from razer_gtk.backend import settings as settings_backend
 from razer_gtk.backend.manager import AppDeviceManager
 from razer_gtk.dialogs.color_picker import open_color_picker
@@ -107,6 +108,10 @@ class MainWindow(Adw.ApplicationWindow):
             first_serial = manager.devices[0].device.serial
             self._on_device_selected(self._sidebar, first_serial)
 
+    def _on_device_renamed(self, caps) -> None:
+        self._content_header.set_title_widget(Adw.WindowTitle(title=device_names.display_name(caps.device)))
+        self._sidebar.rebuild(keep_selection=True)
+
     def _on_refresh_requested(self) -> None:
         """Manual re-scan (button in the sidebar), instead of waiting for
         the next 5s poll tick - also re-reads the currently open device's
@@ -160,7 +165,9 @@ class MainWindow(Adw.ApplicationWindow):
             return
 
         self._content_stack.set_visible_child_name("loading")
-        self._loading_content.set_title(_("Carregando {device}...").format(device=caps.device.name))
+        self._loading_content.set_title(
+            _("Carregando {device}...").format(device=device_names.display_name(caps.device))
+        )
 
         def on_snapshot_ready(snapshot: dict) -> None:
             if serial != self._current_serial:
@@ -198,6 +205,7 @@ class MainWindow(Adw.ApplicationWindow):
             "baseline-changed", lambda _w, name, serial=serial: self._active_preset_names.__setitem__(serial, name or None)
         )
         self._overview.connect("dirty-detected", lambda _w, name: self._show_preset_dirty_toast(name))
+        self._overview.connect("name-changed", lambda *_args: self._on_device_renamed(caps))
         self._content_stack.add_named(self._overview, "overview")
         self._content_stack.set_visible_child_name("overview")
         # Seed from whatever baseline the freshly-built Presets card settled
@@ -212,7 +220,7 @@ class MainWindow(Adw.ApplicationWindow):
         if self._overview.presets_card is not None and self._overview.presets_card.is_dirty:
             self._show_preset_dirty_toast(self._overview.baseline_name)
 
-        self._content_header.set_title_widget(Adw.WindowTitle(title=caps.device.name))
+        self._content_header.set_title_widget(Adw.WindowTitle(title=device_names.display_name(caps.device)))
 
     def _open_stage_editor(self, caps) -> None:
         def on_saved() -> None:

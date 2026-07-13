@@ -6,6 +6,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GObject, Gtk
 
+from razer_gtk.backend import device_names
 from razer_gtk.backend.manager import AppDeviceManager
 from razer_gtk.i18n import _
 
@@ -113,7 +114,7 @@ class DeviceSidebar(Adw.NavigationPage):
         device = caps.device
 
         row = Adw.ActionRow(
-            title=device.name,
+            title=device_names.display_name(device),
             subtitle=_("Conectado"),
         )
         row.add_prefix(Gtk.Image.new_from_icon_name("input-mouse-symbolic"))
