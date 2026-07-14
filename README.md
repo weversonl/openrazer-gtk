@@ -16,7 +16,7 @@ The whole interface is **capability-driven**: nothing is shown unconditionally. 
 
 ## Features
 
-- **DPI control** — discrete stage tables or continuous DPI (with independent X/Y axes where supported), plus a dedicated editor for onboard DPI stages
+- **DPI control** — discrete stage tables or continuous DPI, plus a dedicated editor for onboard DPI stages
 - **Poll rate**
 - **Lighting** — effects, color, and brightness for the device's main light or LED zones
 - **Battery & power** — charge level with a charging indicator, idle-sleep timer, low-battery threshold

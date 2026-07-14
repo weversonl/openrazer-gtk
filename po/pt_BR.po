@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenRazerGTK 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 23:41-0300\n"
+"POT-Creation-Date: 2026-07-14 00:41-0300\n"
 "PO-Revision-Date: 2026-07-13 02:12-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -358,24 +358,20 @@ msgstr "Desempenho"
 msgid "Sensibilidade e taxa de atualização do sensor"
 msgstr "Sensibilidade e taxa de atualização do sensor"
 
-#: razer_gtk/widgets/cards/dpi_card.py:73
+#: razer_gtk/widgets/cards/dpi_card.py:69
 msgid "Editar"
 msgstr "Editar"
 
-#: razer_gtk/widgets/cards/dpi_card.py:103
+#: razer_gtk/widgets/cards/dpi_card.py:99
 msgid "DPI"
 msgstr "DPI"
 
-#: razer_gtk/widgets/cards/dpi_card.py:115
-msgid "Eixos independentes (X/Y)"
-msgstr "Eixos independentes (X/Y)"
-
-#: razer_gtk/widgets/cards/dpi_card.py:162
+#: razer_gtk/widgets/cards/dpi_card.py:124
 #, python-brace-format
 msgid "DPI (até {max_dpi})"
 msgstr "DPI (até {max_dpi})"
 
-#: razer_gtk/widgets/cards/dpi_card.py:195
+#: razer_gtk/widgets/cards/dpi_card.py:152
 msgid "Taxa de atualização"
 msgstr "Taxa de atualização"
 
@@ -409,7 +405,7 @@ msgid "Carregando"
 msgstr "Carregando"
 
 #: razer_gtk/widgets/cards/lighting_card.py:32
-#: razer_gtk/backend/device_adapter.py:168
+#: razer_gtk/backend/device_adapter.py:167
 msgid "Iluminação"
 msgstr "Iluminação"
 
@@ -564,6 +560,9 @@ msgstr "Abrir"
 #: razer_gtk/tray_helper.py:56
 msgid "Sair"
 msgstr "Sair"
+
+#~ msgid "Eixos independentes (X/Y)"
+#~ msgstr "Eixos independentes (X/Y)"
 
 #, python-brace-format
 #~ msgid "Não foi possível reiniciar o daemon: {error}"

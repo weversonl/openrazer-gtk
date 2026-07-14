@@ -147,7 +147,6 @@ class DeviceCapabilities:
     available_dpi: list[int]
     max_dpi: int | None
     supports_dpi_stages: bool
-    supports_independent_axes: bool
 
     supports_poll_rate: bool
     supported_poll_rates: list[int]
@@ -236,7 +235,6 @@ def from_device(device: RazerDevice) -> DeviceCapabilities:
         available_dpi=list(device.available_dpi) if supports_dpi and dpi_is_discrete else [],
         max_dpi=device.max_dpi if supports_dpi else None,
         supports_dpi_stages=device.has("dpi_stages"),
-        supports_independent_axes=supports_dpi and not dpi_is_discrete,
         supports_poll_rate=supports_poll_rate,
         supported_poll_rates=poll_rates,
         primary_light=_pick_primary_light(main_light, zones),
