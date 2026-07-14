@@ -39,6 +39,10 @@ EFFECT_LABELS = {
 DEFAULT_SWATCH_HEX = "00ff00"
 BRIGHTNESS_DEBOUNCE_MS = 250
 
+# Must match the Effect row's PillSelector max_width below, so both rows
+# share the same right edge.
+EFFECT_PILL_MAX_WIDTH = 920
+
 
 def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
     hex_color = hex_color.lstrip("#")
@@ -88,7 +92,7 @@ class EffectControlsGroup(Gtk.Box):
         self._pills = PillSelector(
             [(name, _(EFFECT_LABELS.get(name, name.title()))) for name in zone.supported_effects],
             selected=self._effect,
-            max_width=920,
+            max_width=EFFECT_PILL_MAX_WIDTH,
         )
         effect_row = PillRow(_("Efeito"), self._pills)
         listbox.append(effect_row)
@@ -202,11 +206,8 @@ class EffectControlsGroup(Gtk.Box):
         current = self._colors[index] if index < len(self._colors) else DEFAULT_SWATCH_HEX
         self._open_color_picker(current, on_chosen)
 
-    def _build_brightness_row(self) -> Adw.ActionRow:
-        row = Adw.ActionRow(title=_("Brilho"))
-        row.set_title_lines(1)
-
-        scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL, hexpand=True)
+    def _build_brightness_row(self) -> Gtk.Widget:
+        scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL)
         scale.set_valign(Gtk.Align.CENTER)
         scale.set_range(0, 100)
         scale.set_value(self._initial_brightness)
@@ -217,14 +218,24 @@ class EffectControlsGroup(Gtk.Box):
         value_label.set_xalign(1.0)
         value_label.add_css_class("dim-label")
 
-        holder = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10, hexpand=True)
+        holder = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         holder.append(scale)
         holder.append(value_label)
+        holder.set_halign(Gtk.Align.END)
+
+        # Fixed-width clamp so this row shares a right edge with the
+        # Effect row's PillSelector regardless of window width.
+        clamp = Gtk.ScrolledWindow()
+        clamp.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER)
+        clamp.set_propagate_natural_height(True)
+        clamp.set_size_request(EFFECT_PILL_MAX_WIDTH, -1)
+        clamp.set_valign(Gtk.Align.CENTER)
+        clamp.set_hexpand(True)
+        clamp.set_halign(Gtk.Align.END)
+        clamp.set_child(holder)
 
         scale.connect("value-changed", self._on_brightness_changed, value_label)
-        row.add_suffix(holder)
-        row.set_activatable_widget(scale)
-        return row
+        return PillRow(_("Brilho"), clamp)
 
     def _on_brightness_changed(self, scale: Gtk.Scale, value_label: Gtk.Label) -> None:
         if self._brightness_timeout_id is not None:

@@ -27,6 +27,7 @@ from razer_gtk.window import MainWindow
 
 APP_ID = "io.github.weversonl.OpenRazerGTK"
 STYLE_PATH = Path(__file__).parent / "resources" / "style.css"
+ICON_THEME_DIR = Path(__file__).parent.parent / "data" / "icons"
 
 _COLOR_SCHEMES = {
     "default": Adw.ColorScheme.DEFAULT,
@@ -66,6 +67,7 @@ class RazerGtkApplication(Adw.Application):
             return
 
         self._load_style()
+        self._load_icon_theme()
         install_i18n()
 
         settings = settings_backend.load_settings()
@@ -81,6 +83,7 @@ class RazerGtkApplication(Adw.Application):
 
         self._manager = AppDeviceManager()
         window = MainWindow(self, self._manager)
+        window.set_icon_name(APP_ID)
         window.connect("close-request", self._on_window_close_request)
         self._window = window
 
@@ -121,6 +124,13 @@ class RazerGtkApplication(Adw.Application):
             provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
         )
+
+    def _load_icon_theme(self) -> None:
+        # Not installed system-wide, so add the search path directly.
+        if not ICON_THEME_DIR.exists():
+            return
+        icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
+        icon_theme.add_search_path(str(ICON_THEME_DIR))
 
     def _apply_accent_colors(self) -> None:
         is_dark = Adw.StyleManager.get_default().get_dark()

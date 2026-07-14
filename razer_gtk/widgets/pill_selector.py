@@ -1,7 +1,5 @@
 """Reusable pill-style single-choice selector (effects, DPI stages, poll rate, theme, language)."""
 
-from typing import Callable
-
 import gi
 
 gi.require_version("Gtk", "4.0")
@@ -9,23 +7,12 @@ from gi.repository import GObject, Gtk
 
 
 class PillSelector(Gtk.ScrolledWindow):
-    """A row of round toggle buttons, only one active at a time.
+    """A row of round toggle buttons, right-aligned within a fixed-width box.
 
-    Wraps the actual Gtk.FlowBox in a scrollbar-less Gtk.ScrolledWindow
-    with a fixed size_request, rather than exposing the FlowBox directly
-    or leaving its size to GTK's own negotiation - GTK4's FlowBox has a
-    real measurement bug in this environment: with two or more FlowBox-
-    based widgets like this one in the same window, giving the FlowBox
-    (or anything that lets it expand/hexpand) more room than one line
-    needs makes it just fill that space left-aligned instead of reporting
-    a smaller size to align against, and every attempt at computing a
-    "smaller when tight, capped when spacious" size by hand (dynamic
-    size_request from a resize handler, a custom Gtk.LayoutManager) hit a
-    further GTK4 quirk of its own. A plain fixed size_request is the one
-    approach that reliably measures and right-aligns correctly - the
-    trade-off is that the row (and so the window) can't shrink below
-    `max_width`, so pick it to match the content's real need, not a
-    worst-case padding.
+    Uses a plain Gtk.Box with a leading hexpand spacer, not Gtk.FlowBox -
+    FlowBox doesn't reliably right-align or report its own width on this
+    GTK stack (4.22/Libadwaita 1.9). `max_width` should match the content's
+    real need: the row (and window) can't shrink below it.
     """
 
     __gsignals__ = {
@@ -46,15 +33,13 @@ class PillSelector(Gtk.ScrolledWindow):
         self.set_hexpand(True)
         self.set_halign(Gtk.Align.END)
 
-        self._flow = Gtk.FlowBox()
-        self._flow.set_orientation(Gtk.Orientation.HORIZONTAL)
-        self._flow.set_selection_mode(Gtk.SelectionMode.NONE)
-        self._flow.set_row_spacing(6)
-        self._flow.set_column_spacing(6)
-        self._flow.set_homogeneous(False)
-        self._flow.set_max_children_per_line(999)
-        self._flow.set_halign(Gtk.Align.END)
-        self.set_child(self._flow)
+        self._box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+
+        self._spacer = Gtk.Box()
+        self._spacer.set_hexpand(True)
+        self._box.append(self._spacer)
+
+        self.set_child(self._box)
 
         self._buttons: dict[str, Gtk.ToggleButton] = {}
         self._selected: str | None = None
@@ -63,10 +48,10 @@ class PillSelector(Gtk.ScrolledWindow):
             self.set_options(options, selected)
 
     def set_options(self, options: list[tuple[str, str]], selected: str | None = None) -> None:
-        child = self._flow.get_first_child()
+        child = self._spacer.get_next_sibling()
         while child is not None:
             nxt = child.get_next_sibling()
-            self._flow.remove(child)
+            self._box.remove(child)
             child = nxt
         self._buttons = {}
 
@@ -75,7 +60,7 @@ class PillSelector(Gtk.ScrolledWindow):
             button.set_valign(Gtk.Align.CENTER)
             button.add_css_class("chip-pill")
             button.connect("toggled", self._on_toggled, option_id)
-            self._flow.append(button)
+            self._box.append(button)
             self._buttons[option_id] = button
 
         self._selected = None
