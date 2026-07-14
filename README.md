@@ -26,11 +26,21 @@ The whole interface is **capability-driven**: nothing is shown unconditionally. 
 - **Tray icon and autostart**
 - Automatic light/dark theme and PT-BR/EN-US language (with a restart prompt when the language changes), following system settings
 
+## Built with
+
+- **[GTK 4](https://www.gtk.org/)** + **[Libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/)** — UI toolkit and GNOME HIG widgets, via **[PyGObject](https://pygobject.gnome.org/)**
+- **[OpenRazer](https://openrazer.github.io/)** (`openrazer-daemon` + `python-openrazer`) — the actual driver/daemon that talks to the hardware over D-Bus
+- **[dbus-python](https://dbus.freedesktop.org/doc/dbus-python/)** — pumps D-Bus I/O into GTK's main loop
+- **[AyatanaAppIndicator3](https://github.com/AyatanaIndicators/libayatana-appindicator)** (via GTK 3, in a separate process) — the tray icon; GTK 4 has no tray API and AppIndicator only accepts a GTK 3 menu
+- **gettext** — PT-BR/EN-US translations
+
 ## Requirements
 
-- `openrazer-daemon` running (`systemctl --user status openrazer-daemon` or equivalent)
-- `python-openrazer` installed
-- GTK 4 + Libadwaita ≥ 1.4 and PyGObject
+- **`openrazer-daemon`** running — install via your distro's package or follow the [official OpenRazer installation guide](https://openrazer.github.io/#installation); confirm it's up with `systemctl --user status openrazer-daemon` (or your init system's equivalent)
+- **`python-openrazer`** — usually installed alongside `openrazer-daemon` by your distro's package; see the [OpenRazer installation guide](https://openrazer.github.io/#installation) if it's missing
+- **GTK 4 + Libadwaita ≥ 1.4 and PyGObject** — see [PyGObject's getting-started guide](https://pygobject.gnome.org/getting_started.html) for your distro's package names
+- **AyatanaAppIndicator3** (GTK 3 bindings) — needed for the tray icon; e.g. `libayatana-appindicator3` + its GObject-Introspection/typelib package on most distros
+- **`dbus-python`**
 
 ## Running in development
 
