@@ -51,6 +51,10 @@
   background-color: alpha(currentColor, 0.3);
 }
 
+.battery-charging block.filled {
+  background-color: #4f9bf7;
+}
+
 .preset-active-badge {
   background-color: @accent_bg_color;
   color: @accent_fg_color;

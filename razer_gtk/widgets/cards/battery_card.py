@@ -86,6 +86,18 @@ class BatteryCard(Adw.PreferencesGroup):
 
     def _apply_level(self, level: int, charging: bool) -> None:
         self._level_bar.set_value(level)
+        self._level_bar.remove_css_class("success")
+        self._level_bar.remove_css_class("warning")
+        self._level_bar.remove_css_class("error")
+        self._level_bar.remove_css_class("battery-charging")
+        if charging:
+            self._level_bar.add_css_class("battery-charging")
+        elif level >= 50:
+            self._level_bar.add_css_class("success")
+        elif level >= 20:
+            self._level_bar.add_css_class("warning")
+        else:
+            self._level_bar.add_css_class("error")
         rounded = min(100, max(0, round(level / 10) * 10))
         if charging:
             self._charge_icon.set_from_icon_name(f"battery-level-{rounded}-charging-symbolic")
