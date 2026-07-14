@@ -166,7 +166,7 @@ class PresetsCard(Adw.PreferencesGroup):
     def _on_add_preset(self, _row: Adw.ActionRow) -> None:
         dialog = Adw.AlertDialog(
             heading=_("Novo preset"),
-            body=_("Salva DPI, taxa de sondagem e iluminação atuais deste dispositivo."),
+            body=_("Salva DPI, taxa de atualização e iluminação atuais deste dispositivo."),
         )
         entry = Gtk.Entry(placeholder_text=_("Nome do preset"))
         dialog.set_extra_child(entry)

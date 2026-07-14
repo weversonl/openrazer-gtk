@@ -10,6 +10,7 @@ from gi.repository import Adw, Gtk
 
 from razer_gtk.backend import device_names
 from razer_gtk.backend.device_adapter import DeviceCapabilities
+from razer_gtk.backend.device_icons import generic_icon_name
 from razer_gtk.i18n import _
 
 STAGE_STEP = 200
@@ -45,7 +46,7 @@ def open_dpi_stage_editor(
     body.set_margin_end(16)
 
     device_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    device_row.append(Gtk.Image.new_from_icon_name("input-mouse-symbolic"))
+    device_row.append(Gtk.Image.new_from_icon_name(generic_icon_name(device)))
     label_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
     name_label = Gtk.Label(label=device_names.display_name(device), xalign=0.0)
     name_label.add_css_class("heading")

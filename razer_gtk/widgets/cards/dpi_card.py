@@ -28,7 +28,7 @@ class DpiCard(Adw.PreferencesGroup):
         perform_write_async: Callable[[Callable[[], None], Callable[[str | None], None]], None],
         snapshot: dict,
     ) -> None:
-        super().__init__(title="DPI", description=_("Sensibilidade e taxa de sondagem do sensor"))
+        super().__init__(title=_("Desempenho"), description=_("Sensibilidade e taxa de atualização do sensor"))
         self._caps = caps
         self._device = caps.device
         self._perform_write_async = perform_write_async
@@ -78,7 +78,7 @@ class DpiCard(Adw.PreferencesGroup):
         suffix.append(pills)
         suffix.append(edit_button)
 
-        return PillRow(_("Estágio"), suffix, icon_name="speedometer-symbolic")
+        return PillRow("DPI", suffix, icon_name="speedometer-symbolic")
 
     def _on_stage_selected(self, _pills: PillSelector, value: str, stages: list[tuple[int, int]]) -> None:
         new_active = int(value)
@@ -112,7 +112,7 @@ class DpiCard(Adw.PreferencesGroup):
         self._perform_write_async(lambda: setattr(self._device, "dpi", (dpi_value, 0)), _on_done)
 
     def _build_independent_axes_row(self) -> Adw.SwitchRow:
-        row = Adw.SwitchRow(title=_("Eixos independentes (X/Y)"))
+        row = Adw.SwitchRow(title=_("Eixos independentes (X/Y)"), icon_name="view-grid-symbolic")
         row.set_title_lines(1)
         row.connect("notify::active", self._on_independent_toggled)
         return row
@@ -158,7 +158,9 @@ class DpiCard(Adw.PreferencesGroup):
         box.append(x_row)
         box.append(y_row)
 
-        row = Adw.ActionRow(title=_("DPI (até {max_dpi})").format(max_dpi=max_dpi))
+        row = Adw.ActionRow(
+            title=_("DPI (até {max_dpi})").format(max_dpi=max_dpi), icon_name="speedometer-symbolic"
+        )
         row.set_title_lines(1)
         row.add_suffix(box)
         return row
@@ -190,7 +192,7 @@ class DpiCard(Adw.PreferencesGroup):
 
         pills = PillSelector(options, selected=str(current), max_width=290)
         pills.connect("selection-changed", self._on_poll_rate_selected)
-        return PillRow(_("Taxa de sondagem"), pills)
+        return PillRow(_("Taxa de atualização"), pills, icon_name="input-mouse-symbolic")
 
     def _on_poll_rate_selected(self, _pills: PillSelector, value: str) -> None:
         rate = int(value)

@@ -36,7 +36,7 @@ class BatteryCard(Adw.PreferencesGroup):
             self.set_visible(False)
             return
 
-        self._level_row = Adw.ActionRow(title=_("Bateria"))
+        self._level_row = Adw.ActionRow(title=_("Bateria"), icon_name="battery-symbolic")
         self._level_row.set_title_lines(1)
         self._level_bar = Gtk.LevelBar()
         self._level_bar.set_min_value(0)
@@ -59,6 +59,7 @@ class BatteryCard(Adw.PreferencesGroup):
         if caps.supports_idle_time:
             idle_row = Adw.SpinRow.new_with_range(1, 15, 1)
             idle_row.set_title(_("Modo de dormir depois"))
+            idle_row.set_icon_name("openrazer-gtk-battery-save-symbolic")
             idle_row.set_title_lines(1)
             idle_row.set_subtitle(_("Minutos de inatividade"))
             idle_row.set_value(round(snapshot.get("idle_time", 300) / 60))
@@ -68,6 +69,7 @@ class BatteryCard(Adw.PreferencesGroup):
         if caps.supports_low_battery_threshold:
             threshold_row = Adw.SpinRow.new_with_range(5, 50, 5)
             threshold_row.set_title(_("Entrar em baixa energia em"))
+            threshold_row.set_icon_name("power-profile-power-saver-symbolic")
             threshold_row.set_title_lines(1)
             threshold_row.set_subtitle(_("Percentual de bateria"))
             threshold_row.set_value(snapshot.get("low_battery_threshold", 10))

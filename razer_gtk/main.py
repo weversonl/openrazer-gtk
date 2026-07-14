@@ -97,6 +97,18 @@ class RazerGtkApplication(Adw.Application):
         window.set_visible(False)
         return True
 
+    def restart(self) -> None:
+        """Re-exec the whole process in place, e.g. after a language change
+        that only takes effect on next launch. Replaces this process image
+        (same PID), so there's no window to leave open or mainloop to stop."""
+        if self._window is not None:
+            self._window.save_window_size()
+        if self._tray_process is not None:
+            self._tray_process.terminate()
+            self._tray_process = None
+        os.chdir(str(Path(__file__).parent.parent))
+        os.execv(sys.executable, [sys.executable, "-m", "razer_gtk", *sys.argv[1:]])
+
     def _spawn_tray(self) -> None:
         if self._tray_process is not None:
             return

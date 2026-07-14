@@ -12,30 +12,17 @@ from gi.repository import Adw, Gio, GLib, GObject, Gtk
 from razer_gtk.backend import device_images
 from razer_gtk.backend import device_names
 from razer_gtk.backend.device_adapter import DeviceCapabilities
+from razer_gtk.backend.device_icons import generic_icon_name
 from razer_gtk.i18n import _
 from razer_gtk.widgets.cards.battery_card import BatteryCard
 from razer_gtk.widgets.cards.dpi_card import DpiCard
 from razer_gtk.widgets.cards.lighting_card import LightingCard
 from razer_gtk.widgets.cards.presets_card import PresetsCard
 
-DEVICE_TYPE_ICONS = {
-    "mouse": "input-mouse-symbolic",
-    "mousemat": "input-tablet-symbolic",
-    "keyboard": "input-keyboard-symbolic",
-    "keypad": "input-keyboard-symbolic",
-    "headset": "audio-headset-symbolic",
-    "accessory": "media-removable-symbolic",
-}
-DEFAULT_DEVICE_ICON = "input-gaming-symbolic"
-
 # Wider than Adw.PreferencesPage's built-in clamp (fixed at 600px, no public
 # API to change) so pill rows with many/long options (e.g. all 7 lighting
 # effects) have room to lay out on one line instead of wrapping.
 CONTENT_MAX_WIDTH = 1180
-
-
-def _generic_icon_name(device) -> str:
-    return DEVICE_TYPE_ICONS.get(getattr(device, "type", ""), DEFAULT_DEVICE_ICON)
 
 
 class DeviceOverview(Gtk.Box):
@@ -131,13 +118,12 @@ class DeviceOverview(Gtk.Box):
         if self.presets_card is not None:
             self.presets_card.update_snapshot(snapshot)
 
-    def _build_header_group(self, caps: DeviceCapabilities) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup()
+    def _build_header_group(self, caps: DeviceCapabilities) -> Gtk.Widget:
         device = caps.device
         serial = device.serial
 
         image_box = Gtk.Box()
-        image_box.set_size_request(84, 84)
+        image_box.set_size_request(64, 64)
         image_box.set_halign(Gtk.Align.CENTER)
         # border-radius alone doesn't clip children in GTK4.
         image_box.set_overflow(Gtk.Overflow.HIDDEN)
@@ -161,8 +147,8 @@ class DeviceOverview(Gtk.Box):
             else:
                 image_box.remove_css_class("device-image-filled")
                 image_box.add_css_class("dpi-image-placeholder")
-                icon = Gtk.Image.new_from_icon_name(_generic_icon_name(device))
-                icon.set_pixel_size(36)
+                icon = Gtk.Image.new_from_icon_name(generic_icon_name(device))
+                icon.set_pixel_size(28)
                 icon.set_halign(Gtk.Align.CENTER)
                 icon.set_valign(Gtk.Align.CENTER)
                 icon.set_hexpand(True)
@@ -185,9 +171,9 @@ class DeviceOverview(Gtk.Box):
         image_overlay = Gtk.Overlay()
         image_overlay.set_child(image_box)
         image_overlay.add_overlay(edit_button)
-        image_overlay.set_halign(Gtk.Align.CENTER)
+        image_overlay.set_valign(Gtk.Align.CENTER)
 
-        self._name_label = Gtk.Label(label=device_names.display_name(device))
+        self._name_label = Gtk.Label(label=device_names.display_name(device), xalign=0.0)
         self._name_label.add_css_class("title-2")
 
         rename_button = Gtk.Button(icon_name="document-edit-symbolic")
@@ -197,28 +183,38 @@ class DeviceOverview(Gtk.Box):
         rename_button.connect("clicked", lambda *_a: self._open_rename_dialog(serial, device.name))
 
         name_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
-        name_row.set_halign(Gtk.Align.CENTER)
         name_row.append(self._name_label)
         name_row.append(rename_button)
 
-        status_label = Gtk.Label(label=_("Conectado"))
+        status_dot = Gtk.Box()
+        status_dot.set_size_request(8, 8)
+        status_dot.set_valign(Gtk.Align.CENTER)
+        status_dot.add_css_class("status-dot")
+        status_dot.add_css_class("status-connected")
+
+        status_label = Gtk.Label(label=_("Conectado"), xalign=0.0)
         status_label.add_css_class("dim-label")
 
-        header_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-        header_box.set_halign(Gtk.Align.CENTER)
-        header_box.set_hexpand(True)
-        header_box.set_margin_top(20)
-        header_box.set_margin_bottom(20)
-        header_box.set_margin_start(12)
-        header_box.set_margin_end(12)
-        header_box.append(image_overlay)
-        header_box.append(name_row)
-        header_box.append(status_label)
+        status_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        status_row.append(status_dot)
+        status_row.append(status_label)
 
-        row = Adw.PreferencesRow(activatable=False)
-        row.set_child(header_box)
-        group.add(row)
-        return group
+        text_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        text_box.set_valign(Gtk.Align.CENTER)
+        text_box.append(name_row)
+        text_box.append(status_row)
+
+        header_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=16)
+        header_box.set_halign(Gtk.Align.START)
+        # The placeholder icon inside image_box has vexpand=True (to center
+        # itself in the fixed-size image box) - block that from bubbling up
+        # into content_box's layout, where it would make header_box grab
+        # all of content_box's unused vertical space.
+        header_box.set_vexpand(False)
+        header_box.append(image_overlay)
+        header_box.append(text_box)
+
+        return header_box
 
     def _open_rename_dialog(self, serial: str, original_name: str) -> None:
         dialog = Adw.AlertDialog(

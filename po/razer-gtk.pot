@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the OpenRazerGTK package.
+# This file is distributed under the same license as the razer-gtk package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenRazerGTK\n"
+"Project-Id-Version: razer-gtk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 18:36-0300\n"
+"POT-Creation-Date: 2026-07-13 23:41-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,74 +39,116 @@ msgstr ""
 msgid "As configurações não batem mais com o preset \"{name}\""
 msgstr ""
 
-#: razer_gtk/window.py:253 razer_gtk/dialogs/dpi_stage_editor.py:36
+#: razer_gtk/window.py:253 razer_gtk/dialogs/dpi_stage_editor.py:37
 #: razer_gtk/widgets/cards/presets_card.py:174
-#: razer_gtk/widgets/device_overview.py:233
+#: razer_gtk/widgets/device_overview.py:229
 msgid "Salvar"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:26
+#: razer_gtk/dialogs/preferences.py:28
 msgid "Sistema"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:26
+#: razer_gtk/dialogs/preferences.py:28
 msgid "Claro"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:26
+#: razer_gtk/dialogs/preferences.py:28
 msgid "Escuro"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:40
+#: razer_gtk/dialogs/preferences.py:42
 msgid "Geral"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:52
+#: razer_gtk/dialogs/preferences.py:54
 msgid "Tema"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:63
+#: razer_gtk/dialogs/preferences.py:68
 msgid "Idioma"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:63
+#: razer_gtk/dialogs/preferences.py:68
 msgid "Aplicado ao reiniciar o app"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:67
+#: razer_gtk/dialogs/preferences.py:72
 msgid "Iniciar automaticamente"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:68
+#: razer_gtk/dialogs/preferences.py:73
 msgid "Abre minimizado na bandeja ao ligar o sistema"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:78
+#: razer_gtk/dialogs/preferences.py:83
 msgid "Tamanho da janela"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:79
+#: razer_gtk/dialogs/preferences.py:84
 msgid "Redefinir"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:85
+#: razer_gtk/dialogs/preferences.py:91
+msgid "Notificações de bateria"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:92
+msgid "Aviso de bateria baixa do openrazer-daemon - não é uma feature deste app"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:107
+msgid "Não foi possível reiniciar o daemon automaticamente. Reinicie o openrazer-daemon manualmente, da forma como ele foi instalado e iniciado no seu sistema."
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:118
+msgid "Reiniciar o openrazer-daemon?"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:119
+msgid "Essa alteração só terá efeito depois de reiniciar o daemon."
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:123
+msgid "Notificar bateria baixa"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:137
+msgid "Notificar abaixo de"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:138
+#: razer_gtk/widgets/cards/battery_card.py:74
+msgid "Percentual de bateria"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:150
+msgid "Intervalo entre notificações"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:151
+msgid "Minutos"
+msgstr ""
+
+#: razer_gtk/dialogs/preferences.py:162
 msgid "Backend"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:88
+#: razer_gtk/dialogs/preferences.py:165
 msgid "Status do OpenRazer"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:94
+#: razer_gtk/dialogs/preferences.py:171
 msgid "Versão do daemon"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:99 razer_gtk/widgets/device_overview.py:204
-#: razer_gtk/widgets/device_sidebar.py:118
+#: razer_gtk/dialogs/preferences.py:176
+#: razer_gtk/widgets/device_overview.py:195
+#: razer_gtk/widgets/device_sidebar.py:119
 msgid "Conectado"
 msgstr ""
 
-#: razer_gtk/dialogs/preferences.py:104
+#: razer_gtk/dialogs/preferences.py:181
 msgid "Indisponível"
 msgstr ""
 
@@ -115,9 +157,9 @@ msgid "Escolher cor"
 msgstr ""
 
 #: razer_gtk/dialogs/color_picker.py:32
-#: razer_gtk/dialogs/dpi_stage_editor.py:33
+#: razer_gtk/dialogs/dpi_stage_editor.py:34
 #: razer_gtk/widgets/cards/presets_card.py:173
-#: razer_gtk/widgets/device_overview.py:230
+#: razer_gtk/widgets/device_overview.py:226
 msgid "Cancelar"
 msgstr ""
 
@@ -133,30 +175,46 @@ msgstr ""
 msgid "Mais cores…"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:29
+#: razer_gtk/dialogs/dpi_stage_editor.py:30
 msgid "Estágios de DPI"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:52
+#: razer_gtk/dialogs/dpi_stage_editor.py:53
 #, python-brace-format
 msgid "Até {max_dpi} DPI"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:64
+#: razer_gtk/dialogs/dpi_stage_editor.py:65
 msgid "+ Adicionar estágio"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:69
+#: razer_gtk/dialogs/dpi_stage_editor.py:70
 msgid "Sincronizar"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:70
+#: razer_gtk/dialogs/dpi_stage_editor.py:71
 msgid "Também aplica o estágio ativo ao DPI atual do dispositivo ao salvar"
 msgstr ""
 
-#: razer_gtk/dialogs/dpi_stage_editor.py:87
+#: razer_gtk/dialogs/dpi_stage_editor.py:88
 #, python-brace-format
 msgid "Estágio {n}"
+msgstr ""
+
+#: razer_gtk/dialogs/restart_prompt.py:21
+msgid "Reiniciar o aplicativo?"
+msgstr ""
+
+#: razer_gtk/dialogs/restart_prompt.py:22
+msgid "Essa alteração só terá efeito depois de reiniciar o OpenRazerGTK."
+msgstr ""
+
+#: razer_gtk/dialogs/restart_prompt.py:24
+msgid "Depois"
+msgstr ""
+
+#: razer_gtk/dialogs/restart_prompt.py:25
+msgid "Reiniciar agora"
 msgstr ""
 
 #: razer_gtk/widgets/effect_controls.py:18
@@ -235,15 +293,15 @@ msgstr ""
 msgid "Pulsante"
 msgstr ""
 
-#: razer_gtk/widgets/effect_controls.py:93
+#: razer_gtk/widgets/effect_controls.py:97
 msgid "Efeito"
 msgstr ""
 
-#: razer_gtk/widgets/effect_controls.py:97
+#: razer_gtk/widgets/effect_controls.py:101
 msgid "Cor"
 msgstr ""
 
-#: razer_gtk/widgets/effect_controls.py:206
+#: razer_gtk/widgets/effect_controls.py:238
 msgid "Brilho"
 msgstr ""
 
@@ -281,7 +339,7 @@ msgid "Novo preset"
 msgstr ""
 
 #: razer_gtk/widgets/cards/presets_card.py:169
-msgid "Salva DPI, taxa de sondagem e iluminação atuais deste dispositivo."
+msgid "Salva DPI, taxa de atualização e iluminação atuais deste dispositivo."
 msgstr ""
 
 #: razer_gtk/widgets/cards/presets_card.py:171
@@ -293,15 +351,15 @@ msgid "Preset sem nome"
 msgstr ""
 
 #: razer_gtk/widgets/cards/dpi_card.py:31
-msgid "Sensibilidade e taxa de sondagem do sensor"
+msgid "Desempenho"
+msgstr ""
+
+#: razer_gtk/widgets/cards/dpi_card.py:31
+msgid "Sensibilidade e taxa de atualização do sensor"
 msgstr ""
 
 #: razer_gtk/widgets/cards/dpi_card.py:73
 msgid "Editar"
-msgstr ""
-
-#: razer_gtk/widgets/cards/dpi_card.py:81
-msgid "Estágio"
 msgstr ""
 
 #: razer_gtk/widgets/cards/dpi_card.py:103
@@ -312,13 +370,13 @@ msgstr ""
 msgid "Eixos independentes (X/Y)"
 msgstr ""
 
-#: razer_gtk/widgets/cards/dpi_card.py:161
+#: razer_gtk/widgets/cards/dpi_card.py:162
 #, python-brace-format
 msgid "DPI (até {max_dpi})"
 msgstr ""
 
-#: razer_gtk/widgets/cards/dpi_card.py:193
-msgid "Taxa de sondagem"
+#: razer_gtk/widgets/cards/dpi_card.py:195
+msgid "Taxa de atualização"
 msgstr ""
 
 #: razer_gtk/widgets/cards/battery_card.py:28
@@ -337,19 +395,15 @@ msgstr ""
 msgid "Modo de dormir depois"
 msgstr ""
 
-#: razer_gtk/widgets/cards/battery_card.py:63
+#: razer_gtk/widgets/cards/battery_card.py:64
 msgid "Minutos de inatividade"
 msgstr ""
 
-#: razer_gtk/widgets/cards/battery_card.py:70
+#: razer_gtk/widgets/cards/battery_card.py:71
 msgid "Entrar em baixa energia em"
 msgstr ""
 
-#: razer_gtk/widgets/cards/battery_card.py:72
-msgid "Percentual de bateria"
-msgstr ""
-
-#: razer_gtk/widgets/cards/battery_card.py:90
+#: razer_gtk/widgets/cards/battery_card.py:92
 #: razer_gtk/backend/device_adapter.py:104
 msgid "Carregando"
 msgstr ""
@@ -363,60 +417,60 @@ msgstr ""
 msgid "Efeito, cor e brilho da luz principal do dispositivo"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:180
+#: razer_gtk/widgets/device_overview.py:166
 msgid "Alterar imagem"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:196
-#: razer_gtk/widgets/device_overview.py:225
+#: razer_gtk/widgets/device_overview.py:182
+#: razer_gtk/widgets/device_overview.py:221
 msgid "Renomear dispositivo"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:226
+#: razer_gtk/widgets/device_overview.py:222
 msgid "Só muda o nome mostrado no app - o dispositivo em si não é alterado."
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:232
+#: razer_gtk/widgets/device_overview.py:228
 msgid "Restaurar nome original"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:264
+#: razer_gtk/widgets/device_overview.py:260
 msgid "Escolher imagem…"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:272
+#: razer_gtk/widgets/device_overview.py:268
 msgid "Remover imagem"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:288
+#: razer_gtk/widgets/device_overview.py:284
 msgid "Escolher imagem"
 msgstr ""
 
-#: razer_gtk/widgets/device_overview.py:291
+#: razer_gtk/widgets/device_overview.py:287
 msgid "Imagens"
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:22
+#: razer_gtk/widgets/device_sidebar.py:23
 msgid "Dispositivos"
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:30
+#: razer_gtk/widgets/device_sidebar.py:31
 msgid "Procurar dispositivos novamente"
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:42
+#: razer_gtk/widgets/device_sidebar.py:43
 msgid "DISPOSITIVOS"
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:57
+#: razer_gtk/widgets/device_sidebar.py:58
 msgid "Nenhum dispositivo Razer encontrado"
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:58
+#: razer_gtk/widgets/device_sidebar.py:59
 msgid "Conecte um mouse compatível com o OpenRazer para começar."
 msgstr ""
 
-#: razer_gtk/widgets/device_sidebar.py:70
+#: razer_gtk/widgets/device_sidebar.py:71
 msgid "Preferências"
 msgstr ""
 

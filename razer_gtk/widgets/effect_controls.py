@@ -94,11 +94,11 @@ class EffectControlsGroup(Gtk.Box):
             selected=self._effect,
             max_width=EFFECT_PILL_MAX_WIDTH,
         )
-        effect_row = PillRow(_("Efeito"), self._pills)
+        effect_row = PillRow(_("Efeito"), self._pills, icon_name="openrazer-gtk-effect-symbolic")
         listbox.append(effect_row)
         self._pills.connect("selection-changed", self._on_effect_selected)
 
-        self._color_row = Adw.ActionRow(title=_("Cor"))
+        self._color_row = Adw.ActionRow(title=_("Cor"), icon_name="color-select-symbolic")
         self._color_row.set_title_lines(1)
         self._swatch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self._swatch_box.set_valign(Gtk.Align.CENTER)
@@ -235,7 +235,7 @@ class EffectControlsGroup(Gtk.Box):
         clamp.set_child(holder)
 
         scale.connect("value-changed", self._on_brightness_changed, value_label)
-        return PillRow(_("Brilho"), clamp)
+        return PillRow(_("Brilho"), clamp, icon_name="weather-clear-symbolic")
 
     def _on_brightness_changed(self, scale: Gtk.Scale, value_label: Gtk.Label) -> None:
         if self._brightness_timeout_id is not None:
