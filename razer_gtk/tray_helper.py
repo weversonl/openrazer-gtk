@@ -16,7 +16,7 @@ from gi.repository import Gio, GLib, Gtk, AyatanaAppIndicator3
 from razer_gtk.i18n import _
 from razer_gtk.i18n import install as install_i18n
 
-ICON_NAME = "input-mouse-symbolic"
+ICON_NAME = "org.gnome.Settings-mouse-symbolic"
 
 
 def _object_path(app_id: str) -> str:
